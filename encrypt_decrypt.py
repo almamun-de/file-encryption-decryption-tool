@@ -57,5 +57,26 @@ def decrypt_file(file_name, key):
     
     print(f"File '{file_name}' decrypted successfully!")
 
-
+if __name__ == "__main__":
+    print("1. Generate a new key")
+    print("2. Encrypt a file")
+    print("3. Decrypt a file")
+    
+    choice = input("Choose an option (1/2/3): ")
+    
+    if choice == "1":
+        generate_key()
+    
+    elif choice == "2":
+        key = load_key()
+        file_name = input("Enter the name of the file to encrypt: ")
+        encrypt_file(file_name, key)
+    
+    elif choice == "3":
+        key = load_key()
+        file_name = input("Enter the name of the file to decrypt (must have .enc extension): ")
+        decrypt_file(file_name, key)
+    
+    else:
+        print("Invalid choice!")
       
